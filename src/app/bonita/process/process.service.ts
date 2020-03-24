@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs';
-import {BonitaSessionInterface} from '../rest-api/bonita-session-interface';
 import {ProcessInfo} from './process-info';
 import {InstanceInfo} from './instance-info';
 import {SessionService} from '../rest-api/session.service';

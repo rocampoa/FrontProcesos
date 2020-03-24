@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ApplicationForm} from '../../model/application-form';
-import {IDatoRef} from '../../model/idato-ref';
 import * as myGlobal from '../../model/Global';
 
 @Component({
@@ -15,7 +14,7 @@ export class SolicitudComponent implements OnInit {
   salutations = myGlobal.salutations;
   docTypes = myGlobal.docTypes;
   sexos = myGlobal.sexos;
-  maritalStatuses = myGlobal.maritalStatuses
+  maritalStatuses = myGlobal.maritalStatuses;
   grados = myGlobal.grados;
 
   constructor() {

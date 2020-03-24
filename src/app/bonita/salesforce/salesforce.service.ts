@@ -27,7 +27,7 @@ export class SalesforceService {
     return this.http.post<ContactResponse>(`${this.url}create`, data);
   }
 
-  queryContact(contactId: string): Observable<QueryContactResponse>{
+  queryContact(contactId: string): Observable<QueryContactResponse> {
     return this.http.get<QueryContactResponse>(`${this.url}${contactId}`);
   }
 }

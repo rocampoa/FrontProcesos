@@ -11,8 +11,8 @@ import {LoginComponent} from './component/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UIService} from './services/ui.service';
 import {MessageComponent} from './component/message/message.component';
-import { SolicitudComponent } from './component/solicitud/solicitud.component';
-import { NumberDirective } from './directives/number.directive';
+import {SolicitudComponent} from './component/solicitud/solicitud.component';
+import {NumberDirective} from './directives/number.directive';
 
 @NgModule({
   declarations: [
