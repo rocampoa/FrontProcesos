@@ -8,6 +8,7 @@ import {environment} from '../../../environments/environment';
 import {DataSession} from '../authentication/data-session';
 import {ProcessInfo} from '../process/process-info';
 import {InstanceInfo} from '../process/instance-info';
+import {SalesforceAuthResponse} from '../salesforce/salesforce-auth-response';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class SessionService {
   sessionInfo: BonitaSession = new BonitaSession();
   dataSession: DataSession = new DataSession();
   processInfo: ProcessInfo = new ProcessInfo();
+  sfInfo: SalesforceAuthResponse = new SalesforceAuthResponse();
   instanceInfo: InstanceInfo = new InstanceInfo();
 
   constructor(private http: HttpClient) {

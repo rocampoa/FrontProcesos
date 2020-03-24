@@ -1,0 +1,36 @@
+<br><br><br><br><br>
+<div fxLayout="row" class="container" fxLayoutAlign="center center">
+  <form #authForm="ngForm"  name="authForm">
+    <mat-card>
+      <mat-card-content>
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px"
+             style="height:100%;padding: 5px;">
+          <table class="example-full-width" cellspacing="0">
+            <td><img src="../../assets/images/login.png" width="50px" height="50px"></td>
+            <tr fxLayoutAlign="center center">
+              <td>
+                <mat-form-field class="example-full-width" style="padding: 0 35px">
+                  <input matInput placeholder="Usuario" [(ngModel)]="userName" name="username" required>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr fxLayoutAlign="center center">
+              <td>
+                <mat-form-field class="example-full-width" style="padding: 0 35px">
+                  <input matInput placeholder="Contraseña" [(ngModel)]="password" type="password" name="password"
+                         required minlength="3">
+                </mat-form-field>
+              </td>
+            </tr>
+            <mat-card-actions fxLayoutAlign="center center">
+              <button mat-raised-button (click)="login()" class="login-ingresar" style="padding: 0 35px"
+                      [disabled]="!authForm.valid">Ingresar
+              </button>
+            </mat-card-actions>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+
+</div>

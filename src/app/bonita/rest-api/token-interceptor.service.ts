@@ -11,7 +11,7 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (request.url === `${environment.backendUrl}/loginBonita`) {
+    if (request.url === `${environment.backendUrl}/loginBonita` || request.url === environment.salesforceLoginUrl) {
       return next.handle(request);
     } else {
       const headers = request.headers

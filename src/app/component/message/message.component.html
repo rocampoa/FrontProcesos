@@ -1,0 +1,13 @@
+<h2>{{passedData.title}}</h2>
+<mat-dialog-content>
+  <mat-icon class="material-icons md-36">{{iconName}}</mat-icon>
+  <div>
+    <pre style="justify-content:flex-start">{{passedData.message}}</pre>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button *ngFor="let b of passedData.buttons" [mat-dialog-close]="b.value" [color]="b.color">
+    <mat-icon>{{b.icon}}</mat-icon>
+    <span class="button-caption">{{b.label}}</span>
+  </button>
+</mat-dialog-actions>
