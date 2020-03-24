@@ -1,0 +1,216 @@
+<mat-grid-list cols="8" rowHeight="100%">
+  <mat-grid-tile colspan="2" style="background-color: aqua"></mat-grid-tile>
+  <mat-grid-tile colspan="4" tyle="background-color: red">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Formulario de Solicitud de Cr&eacute;dito
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form #f="ngForm" name="formSolicitud" novalidate>
+          <mat-form-field class="style-text">
+            <mat-label>Tipo identificaci&oacute;n</mat-label>
+            <mat-select placeholder="Tipo Identificaci&oacute;n" required name="docType"
+                        [(ngModel)]="data.client.documentType__c"
+                        #docTypeInput="ngModel">
+              <mat-option *ngFor="let s of docTypes" [value]="s.cod">{{s.description}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>N&uacute;mero de Identificaci&oacute;n</mat-label>
+            <input matInput placeholder="N&uacute;mero de Identificaci&oacute;n" required minlength="3"
+                   [(ngModel)]="data.client.idDocument__c" name="nroId" #nroIdInput="ngModel" appNumbersOnly>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Lugar expedici&oacute;n</mat-label>
+            <input matInput placeholder="Lugar expedici&oacute;n" required minlength="3"
+                   [(ngModel)]="data.client.documentIssuePlace__c" name="lugarced" #nroIdInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Tratamiento</mat-label>
+            <mat-select placeholder="Tratamiento" required name="salutation" [(ngModel)]="data.client.salutation"
+                        #salutationInput="ngModel">
+              <mat-option *ngFor="let s of salutations" [value]="s.cod">{{s.description}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Nombres</mat-label>
+            <input matInput placeholder="Nombres" required minlength="3"
+                   [(ngModel)]="data.client.firstName" name="nombres" #nombresInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Apellidos</mat-label>
+            <input matInput placeholder="Apellidos" required minlength="3"
+                   [(ngModel)]="data.client.lastName" name="apellidos" #apellidosInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Nacionalidad</mat-label>
+            <input matInput placeholder="Nacionalidad" required
+                   [(ngModel)]="data.client.nationality__c" name="nacionalidad" #nacionalidadInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Sexo</mat-label>
+            <mat-select placeholder="Sexo" required name="sexo" [(ngModel)]="data.client.sex__c"
+                        #sexoInput="ngModel">
+              <mat-option *ngFor="let s of sexos" [value]="s.cod">{{s.description}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Estado civil</mat-label>
+            <mat-select placeholder="Estado civil" required name="estadoCivil"
+                        [(ngModel)]="data.client.maritalStatus__c"
+                        #estadoCInput="ngModel">
+              <mat-option *ngFor="let ec of maritalStatuses" [value]="ec.cod">{{ec.description}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>N&uacute;mero de Hijos</mat-label>
+            <input matInput placeholder="N&uacute;mero de Hijos" required appNumbersOnly
+                   [(ngModel)]="data.client.numberChildren__c" name="hijos" #hijosInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Personas a cargo</mat-label>
+            <input matInput placeholder="Personas a cargo" required appNumbersOnly
+                   [(ngModel)]="data.client.numberDependentPeople__c" name="personas" #personasInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Nivel acad&eacute;mico</mat-label>
+            <mat-select placeholder="Nivel acad&eacute;mico" required name="nivelAcademico"
+                        [(ngModel)]="data.client.academicDegrees__c"
+                        #nivelAInput="ngModel">
+              <mat-option *ngFor="let na of grados" [value]="na.cod">{{na.description}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Direcci&oacute;n</mat-label>
+            <input matInput placeholder="Direcci&oacute;n" required
+                   [(ngModel)]="data.client.mailingStreet" name="direccion" #direccionInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Departamento</mat-label>
+            <input matInput placeholder="Departamento" required
+                   [(ngModel)]="data.client.mailingState" name="departamento" #departamentoInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Ciudad/Municipio</mat-label>
+            <input matInput placeholder="Ciudad/Municipio" required
+                   [(ngModel)]="data.client.mailingCity" name="municipio" #ciudadInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Pa&iacute;s</mat-label>
+            <input matInput placeholder="Pa&iacute;s" required
+                   [(ngModel)]="data.client.mailingCountry" name="pais" #paisInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>C&oacute;digo Postal</mat-label>
+            <input matInput placeholder="C&oacute;digo Postal" required
+                   [(ngModel)]="data.client.mailingPostalCode" name="postal" #postalInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Tel&eacute;fono</mat-label>
+            <input matInput placeholder="Tel&eacute;fono" required
+                   [(ngModel)]="data.client.phone" name="telefono" #telefonoInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Celular</mat-label>
+            <input matInput placeholder="Celular" required
+                   [(ngModel)]="data.client.mobilePhone" name="celular" #celularInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" required [pattern]="emailPattern"
+                   [(ngModel)]="data.client.email" name="email" #emailInput="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Usuario Twitter</mat-label>
+            <input matInput placeholder="Usuario Twitter" required
+                   [(ngModel)]="data.client.twitterUser__c" name="twitter" #emailInput="ngModel">
+          </mat-form-field>
+          <mat-divider></mat-divider>
+          <h2>Datos Econ&oacute;micos</h2>
+          <mat-divider></mat-divider>
+          <h2>Referencia Personal</h2>
+          <mat-form-field class="style-text">
+            <mat-label>Tipo identificaci&oacute;n</mat-label>
+            <mat-select placeholder="Tipo Identificaci&oacute;n" required name="docType1"
+                        [(ngModel)]="data.refP.documentType__c"
+                        #docType1Input="ngModel">
+              <mat-option *ngFor="let s of docTypes" [value]="s.cod">{{s.description}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>N&uacute;mero de Identificaci&oacute;n</mat-label>
+            <input matInput placeholder="N&uacute;mero de Identificaci&oacute;n" required minlength="3"
+                   [(ngModel)]="data.refP.idDocument__c" name="nroId1" #nroId1Input="ngModel" appNumbersOnly>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Nombres</mat-label>
+            <input matInput placeholder="Nombres" required minlength="3"
+                   [(ngModel)]="data.refP.firstName" name="nombres1" #nombres1Input="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Apellidos</mat-label>
+            <input matInput placeholder="Apellidos" required minlength="3"
+                   [(ngModel)]="data.refP.lastName" name="apellidos1" #apellidos1Input="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Tel&eacute;fono</mat-label>
+            <input matInput placeholder="Tel&eacute;fono" required
+                   [(ngModel)]="data.refP.phone" name="telefono1" #telefono1Input="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Celular</mat-label>
+            <input matInput placeholder="Celular" required
+                   [(ngModel)]="data.refP.mobilePhone" name="celular1" #celular1Input="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" required [pattern]="emailPattern"
+                   [(ngModel)]="data.refP.email" name="email1" #email1Input="ngModel">
+          </mat-form-field>
+          <mat-divider></mat-divider>
+          <h2>Referencia Familiar</h2>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="button-section">
+          <button mat-button color="primary" [disabled]="!f.valid">
+            <mat-icon>save</mat-icon>
+            <span class="button-caption">Guardar</span>
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" style="background-color: aqua"></mat-grid-tile>
+</mat-grid-list>
+
+
+

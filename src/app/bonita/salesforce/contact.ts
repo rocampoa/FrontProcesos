@@ -1,13 +1,13 @@
 export class Contact {
-  salutation: string;
+  salutation = 'Mr.';
   firstName: string;
   lastName: string;
   idDocument__c: number;
-  documentType__c: string;
+  documentType__c = 'CC';
   documentIssuePlace__c?: string;
   numberChildren__c = 0;
-  sex__c: string;
-  maritalStatus__c?: string;
+  sex__c = 'M';
+  maritalStatus__c? = 'Soltero';
   nationality__c?: string;
   academicDegrees__c?: string;
   twitterUser__c: string;
@@ -19,6 +19,6 @@ export class Contact {
   mailingCity: string;
   mailingState: string;
   mailingPostalCode: string;
-  mailingCountry: string;
+  mailingCountry = 'Colombia';
   description?: string;
 }
