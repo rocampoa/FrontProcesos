@@ -16,3 +16,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 20%;
   padding: 5px 20px;
 }
+
+.number-input {
+  text-align: right;
+}
+
+.fondo {
+  background-color: lightgray;
+}

@@ -1,6 +1,6 @@
 <mat-grid-list cols="8" rowHeight="100%">
-  <mat-grid-tile colspan="2" style="background-color: aqua"></mat-grid-tile>
-  <mat-grid-tile colspan="4" tyle="background-color: red">
+  <mat-grid-tile colspan="2" class="fondo"></mat-grid-tile>
+  <mat-grid-tile colspan="4">
     <mat-card>
       <mat-card-header>
         <mat-card-title>
@@ -147,14 +147,68 @@
             <input matInput placeholder="Usuario Twitter" required
                    [(ngModel)]="data.client.twitterUser__c" name="twitter" #emailInput="ngModel">
           </mat-form-field>
+
           <mat-divider></mat-divider>
-          <h2>Datos Econ&oacute;micos</h2>
+          <h2>Ingresos</h2>
+          <mat-form-field class="style-text">
+            <mat-label>Salarios</mat-label>
+            <input matInput placeholder="Salarios" required class="number-input"
+                   [(ngModel)]="data.requestD.salary" name="salario" #salarioInput="ngModel" appNumbersOnly>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Comisiones</mat-label>
+            <input matInput placeholder="Comisiones" required  class="number-input"
+                   [(ngModel)]="data.requestD.commissions" name="bonificacion" #comiInput="ngModel" appNumbersOnly>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Arriendos</mat-label>
+            <input matInput placeholder="Arriendos" required  class="number-input"
+                   [(ngModel)]="data.requestD.rent" name="arriendo" #arriendoInput="ngModel" appNumbersOnly>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Otros Ingresos</mat-label>
+            <input matInput placeholder="Otros Ingresos" required  class="number-input"
+                   [(ngModel)]="data.requestD.income" name="otrosIng" #otroInput="ngModel" appNumbersOnly>
+          </mat-form-field>
+
           <mat-divider></mat-divider>
-          <h2>Referencia Personal</h2>
+          <h2>Gastos</h2>
+
+          <mat-form-field class="style-text">
+            <mat-label>Arrendamiento</mat-label>
+            <input matInput placeholder="Arrendamiento" required class="number-input"
+                   [(ngModel)]="data.requestD.erent" name="arrentamiento" #arrendaInput="ngModel" appNumbersOnly>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Tarjetas de Cr&eacute;dito</mat-label>
+            <input matInput placeholder="Tarjetas de Cr&eacute;dito" required  class="number-input"
+                   [(ngModel)]="data.requestD.cards" name="bonificacion" #cardInput="ngModel" appNumbersOnly>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Pr&eacute;stamos</mat-label>
+            <input matInput placeholder="Pr&eacute;stamos" required  class="number-input"
+                   [(ngModel)]="data.requestD.loans" name="prestamo" #loanInput="ngModel" appNumbersOnly>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Gastos</mat-label>
+            <input matInput placeholder="Gastos" required  class="number-input"
+                   [(ngModel)]="data.requestD.expenses" name="gastos" #expensesInput="ngModel" appNumbersOnly>
+          </mat-form-field>
+
+          <mat-divider></mat-divider>
+
+          <h2>Referencia Comercial</h2>
+
           <mat-form-field class="style-text">
             <mat-label>Tipo identificaci&oacute;n</mat-label>
             <mat-select placeholder="Tipo Identificaci&oacute;n" required name="docType1"
-                        [(ngModel)]="data.refP.documentType__c"
+                        [(ngModel)]="data.refC.documentType__c"
                         #docType1Input="ngModel">
               <mat-option *ngFor="let s of docTypes" [value]="s.cod">{{s.description}}</mat-option>
             </mat-select>
@@ -163,40 +217,87 @@
           <mat-form-field class="style-text">
             <mat-label>N&uacute;mero de Identificaci&oacute;n</mat-label>
             <input matInput placeholder="N&uacute;mero de Identificaci&oacute;n" required minlength="3"
-                   [(ngModel)]="data.refP.idDocument__c" name="nroId1" #nroId1Input="ngModel" appNumbersOnly>
+                   [(ngModel)]="data.refC.idDocument__c" name="nroId1" #nroId1Input="ngModel" appNumbersOnly>
           </mat-form-field>
 
           <mat-form-field class="style-text">
             <mat-label>Nombres</mat-label>
             <input matInput placeholder="Nombres" required minlength="3"
-                   [(ngModel)]="data.refP.firstName" name="nombres1" #nombres1Input="ngModel">
+                   [(ngModel)]="data.refC.firstName" name="nombres1" #nombres1Input="ngModel">
           </mat-form-field>
 
           <mat-form-field class="style-text">
             <mat-label>Apellidos</mat-label>
             <input matInput placeholder="Apellidos" required minlength="3"
-                   [(ngModel)]="data.refP.lastName" name="apellidos1" #apellidos1Input="ngModel">
+                   [(ngModel)]="data.refC.lastName" name="apellidos1" #apellidos1Input="ngModel">
           </mat-form-field>
 
           <mat-form-field class="style-text">
             <mat-label>Tel&eacute;fono</mat-label>
             <input matInput placeholder="Tel&eacute;fono" required
-                   [(ngModel)]="data.refP.phone" name="telefono1" #telefono1Input="ngModel">
+                   [(ngModel)]="data.refC.phone" name="telefono1" #telefono1Input="ngModel">
           </mat-form-field>
 
           <mat-form-field class="style-text">
             <mat-label>Celular</mat-label>
             <input matInput placeholder="Celular" required
-                   [(ngModel)]="data.refP.mobilePhone" name="celular1" #celular1Input="ngModel">
+                   [(ngModel)]="data.refC.mobilePhone" name="celular1" #celular1Input="ngModel">
           </mat-form-field>
 
           <mat-form-field class="style-text">
             <mat-label>Email</mat-label>
             <input matInput placeholder="Email" required [pattern]="emailPattern"
-                   [(ngModel)]="data.refP.email" name="email1" #email1Input="ngModel">
+                   [(ngModel)]="data.refC.email" name="email1" #email1Input="ngModel">
           </mat-form-field>
           <mat-divider></mat-divider>
+
           <h2>Referencia Familiar</h2>
+
+          <mat-form-field class="style-text">
+            <mat-label>Tipo identificaci&oacute;n</mat-label>
+            <mat-select placeholder="Tipo Identificaci&oacute;n" required name="docType2"
+                        [(ngModel)]="data.refP.documentType__c"
+                        #docType2Input="ngModel">
+              <mat-option *ngFor="let s of docTypes" [value]="s.cod">{{s.description}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>N&uacute;mero de Identificaci&oacute;n</mat-label>
+            <input matInput placeholder="N&uacute;mero de Identificaci&oacute;n" required minlength="3"
+                   [(ngModel)]="data.refP.idDocument__c" name="nroId2" #nroId2Input="ngModel" appNumbersOnly>
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Nombres</mat-label>
+            <input matInput placeholder="Nombres" required minlength="3"
+                   [(ngModel)]="data.refP.firstName" name="nombres2" #nombres2Input="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Apellidos</mat-label>
+            <input matInput placeholder="Apellidos" required minlength="3"
+                   [(ngModel)]="data.refP.lastName" name="apellidos2" #apellidos2Input="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Tel&eacute;fono</mat-label>
+            <input matInput placeholder="Tel&eacute;fono" required
+                   [(ngModel)]="data.refP.phone" name="telefono2" #telefono2Input="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Celular</mat-label>
+            <input matInput placeholder="Celular" required
+                   [(ngModel)]="data.refP.mobilePhone" name="celular2" #celular2Input="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="style-text">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" required [pattern]="emailPattern"
+                   [(ngModel)]="data.refP.email" name="email2" #email2Input="ngModel">
+          </mat-form-field>
+          <mat-divider></mat-divider>
         </form>
       </mat-card-content>
       <mat-card-actions>
@@ -209,7 +310,7 @@
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
-  <mat-grid-tile colspan="2" style="background-color: aqua"></mat-grid-tile>
+  <mat-grid-tile colspan="2" class="fondo"></mat-grid-tile>
 </mat-grid-list>
 
 
