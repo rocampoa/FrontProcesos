@@ -1,4 +1,23 @@
 <mat-toolbar color="primary" class="navbar">
+  <div>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>queue_play_next</mat-icon>
+        <span>Solicitar Cr&eacute;dito</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>fingerprint</mat-icon>
+        <span>Validacion dactilosc&oacute;pica</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>find_replace</mat-icon>
+        <span>Validar Cr&eacute;dito</span>
+      </button>
+    </mat-menu>
+  </div>
   <div>Banco de Procesos</div>
   <div>
     <span>Home</span>
