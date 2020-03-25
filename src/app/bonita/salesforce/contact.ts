@@ -4,12 +4,12 @@ export class Contact {
   lastName: string;
   idDocument__c: number;
   documentType__c = 'CC';
-  documentIssuePlace__c?: string;
+  documentIssuePlace__c = 'Bogota';
   numberChildren__c = 0;
   sex__c = 'M';
   maritalStatus__c? = 'Soltero';
-  nationality__c?: string;
-  academicDegrees__c?: string;
+  nationality__c = 'Colombiano';
+  academicDegrees__c = 'Bachillerato';
   twitterUser__c: string;
   numberDependentPeople__c = 0;
   phone: string;

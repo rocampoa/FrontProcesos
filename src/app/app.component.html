@@ -4,23 +4,27 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item (click)="login()">
+        <mat-icon>vpn_key</mat-icon>
+        <span>Login</span>
+      </button>
+      <button mat-menu-item (click)="goRequestForm()" [disabled]="isDisabled">
         <mat-icon>queue_play_next</mat-icon>
         <span>Solicitar Cr&eacute;dito</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item [disabled]="isDisabled">
         <mat-icon>fingerprint</mat-icon>
         <span>Validacion dactilosc&oacute;pica</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item [disabled]="isDisabled">
         <mat-icon>phone_in_talk</mat-icon>
         <span>Verificar Referencias</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item [disabled]="isDisabled">
         <mat-icon>find_replace</mat-icon>
         <span>Validar Cr&eacute;dito</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="exitApp()" [disabled]="isDisabled">
         <mat-icon>exit_to_app</mat-icon>
         <span>Logout</span>
       </button>

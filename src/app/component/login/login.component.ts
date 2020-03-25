@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(new BonitaCredentials(this.userName, this.password))
       .subscribe(data => {
           if (data.message === 'OK') {
+            this.sessionService.isAuthenticate.next(true);
             this.sessionService.dataSession = data;
             this.sessionService.getSession().subscribe(s => {
               console.log(s.user_id, s.user_name);
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit {
                 .subscribe(sdata => {
                   this.sessionService.sfInfo = sdata;
                   console.log('Token Salesforce' + sdata.access_token);
+                  this.router.navigate(['inicio']);
                 });
             });
           } else {

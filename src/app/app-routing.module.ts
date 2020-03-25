@@ -2,12 +2,14 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './component/login/login.component';
 import {SolicitudComponent} from './component/solicitud/solicitud.component';
+import {VacioComponent} from './component/vacio/vacio.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/solicitud', pathMatch: 'full'},
+  {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'solicitud', component: SolicitudComponent}
+  {path: 'solicitud', component: SolicitudComponent},
+  {path: 'inicio', component: VacioComponent}
 ];
 
 @NgModule({

@@ -302,7 +302,7 @@
       </mat-card-content>
       <mat-card-actions>
         <div class="button-section">
-          <button mat-button color="primary" [disabled]="!f.valid">
+          <button mat-button color="primary" [disabled]="!f.valid" (click)="save()">
             <mat-icon>save</mat-icon>
             <span class="button-caption">Guardar</span>
           </button>

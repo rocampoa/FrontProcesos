@@ -1,13 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {BonitaSession} from './bonita-session';
 import {BonitaSessionInterface} from './bonita-session-interface';
 import {map} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
 import {DataSession} from '../authentication/data-session';
 import {ProcessInfo} from '../process/process-info';
-import {InstanceInfo} from '../process/instance-info';
 import {SalesforceAuthResponse} from '../salesforce/salesforce-auth-response';
 
 @Injectable({
@@ -15,11 +14,11 @@ import {SalesforceAuthResponse} from '../salesforce/salesforce-auth-response';
 })
 export class SessionService {
   private readonly URL = `${environment.backendUrl}/session`;
+  isAuthenticate = new BehaviorSubject<boolean>(false);
   sessionInfo: BonitaSession = new BonitaSession();
   dataSession: DataSession = new DataSession();
   processInfo: ProcessInfo = new ProcessInfo();
   sfInfo: SalesforceAuthResponse = new SalesforceAuthResponse();
-  instanceInfo: InstanceInfo = new InstanceInfo();
 
   constructor(private http: HttpClient) {
   }

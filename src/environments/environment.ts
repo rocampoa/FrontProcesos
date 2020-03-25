@@ -7,7 +7,7 @@ export const environment = {
   backendUrl: 'http://localhost:8085/api/bonita',
   bonitaserverUrl: 'http://localhost:8080',
   salesforceLoginUrl: 'http://localhost:8085/api/salesforce/',
-  processName: 'TestSalesForce',
+  processName: 'Credito',
   salesforceClientId: '3MVG9Kip4IKAZQEUUGN7_eoZvZMqR7ZNaDZnPP2eh_yh_tskm.9bz82uwiWlWGsIFF5CymoZHtQTtvGG2CYod',
   salesforceClientSecret: '5DAFD01B6FDACED58373E002F468F0255CBFEDA13A9D82C3C84167848D8C50BB',
   salesForceUserName: 'bmartinezm@javeriana.edu.co',

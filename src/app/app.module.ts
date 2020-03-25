@@ -13,6 +13,7 @@ import {UIService} from './services/ui.service';
 import {MessageComponent} from './component/message/message.component';
 import {SolicitudComponent} from './component/solicitud/solicitud.component';
 import {NumberDirective} from './directives/number.directive';
+import {VacioComponent} from './component/vacio/vacio.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {NumberDirective} from './directives/number.directive';
     LoginComponent,
     MessageComponent,
     SolicitudComponent,
-    NumberDirective
+    NumberDirective,
+    VacioComponent
   ],
   imports: [
     BrowserModule,
