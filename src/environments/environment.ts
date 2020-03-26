@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   backendUrl: 'http://localhost:8085/api/bonita',
+  backendBusiness: 'http://localhost:8085/api/business/',
   bonitaserverUrl: 'http://localhost:8080',
   salesforceLoginUrl: 'http://localhost:8085/api/salesforce/',
   processName: 'Credito',

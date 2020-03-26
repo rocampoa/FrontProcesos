@@ -17,15 +17,8 @@ export class AppComponent implements OnInit {
     this.ss.isAuthenticate.subscribe(d => this.isDisabled = !d);
   }
 
-  goRequestForm() {
-    this.router.navigate(['solicitud']);
+  navigate(option: string) {
+    this.router.navigate([option]);
   }
 
-  login() {
-    this.router.navigate(['login']);
-  }
-
-  exitApp() {
-    this.router.navigate(['login']);
-  }
 }

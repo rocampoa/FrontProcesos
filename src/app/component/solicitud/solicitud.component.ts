@@ -9,6 +9,8 @@ import {HumanTaskDTO} from '../../bonita/task/human-task-d-t-o';
 import {TaskService} from '../../bonita/task/task.service';
 import {SalesforceService} from '../../bonita/salesforce/salesforce.service';
 import {forkJoin, Observable} from 'rxjs';
+import {UIService} from '../../services/ui.service';
+import {BusinessService} from '../../services/business/business.service';
 
 @Component({
   selector: 'app-solicitud',
@@ -27,8 +29,8 @@ export class SolicitudComponent implements OnInit {
   instanceInfo: InstanceInfo;
   ht: HumanTaskDTO;
 
-  constructor(private ss: SessionService, private ps: ProcessService, private ts: TaskService,
-              private sfs: SalesforceService, private router: Router) {
+  constructor(private ss: SessionService, private ps: ProcessService, private ts: TaskService, private bs: BusinessService,
+              private sfs: SalesforceService, private ui: UIService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -63,11 +65,24 @@ export class SolicitudComponent implements OnInit {
       this.data.requestD.contactId = c[0].id;
       this.data.requestD.refCId = c[1].id;
       this.data.requestD.refPId = c[2].id;
-      //Se finaliza la tarea en Bonita
-      this.ts.endTaskRequest(this.ht.id, {clientId: c[0].id, refCId: c[1].id, refPId: c[2].id})
-        .subscribe(r => {
-          console.log(r);
-        });
+      //Se graba la información de la solicitud.
+      this.bs.createRequest(this.data.requestD).subscribe(r => {
+        //Se finaliza la tarea en Bonita
+        this.ts.endTaskRequest(this.ht.id, {clientId: r.contactId, refCId: r.refCId, refPId: r.refPId, formularioId: r.requestId})
+          .subscribe(y => {
+            this.ui.showMessage(
+              {
+                title: 'Notificaci\xf3n',
+                type: 'SUCCESS',
+                message: 'Solicitud radicada con número: ' + r.requestId,
+                buttons: [{label: 'Aceptar', color: 'primary', value: 'yes', icon: 'done_all'}]
+              }
+            )
+              .subscribe(x => {
+                this.router.navigate(['inicio']);
+              });
+          });
+      });
     });
   }
 

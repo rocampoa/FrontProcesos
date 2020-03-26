@@ -30,3 +30,25 @@ body {
 .fondo {
   background-color: lightgray;
 }
+
+.color-data {
+  color: #73879C
+}
+
+.head-table {
+  color: #2b7f70;
+}
+
+.table1 {
+  width: 100%;
+  border: 1px solid #473e8c;
+}
+
+.example-card {
+  width: 80%;
+}
+
+.style-text-add-user {
+  width: 50%;
+  padding: 0 40px;
+}

@@ -148,6 +148,12 @@
                    [(ngModel)]="data.client.twitterUser__c" name="twitter" #emailInput="ngModel">
           </mat-form-field>
 
+          <mat-form-field class="style-text">
+            <mat-label>Monto Solicitado</mat-label>
+            <input matInput placeholder="Monto Solicitado" required class="number-input"
+                   [(ngModel)]="data.requestD.amount" name="monto" #montoInput="ngModel" appNumbersOnly>
+          </mat-form-field>
+
           <mat-divider></mat-divider>
           <h2>Ingresos</h2>
           <mat-form-field class="style-text">

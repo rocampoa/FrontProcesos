@@ -1,0 +1,42 @@
+<h2>Validar Solicitud de Cr&eacute;dito</h2>
+<mat-dialog-content>
+  <mat-form-field class="style-text-add-user">
+    <input matInput placeholder="N&uacute;mero Solicitud" [(ngModel)]="data.idSolicitud" name="idSolicitud"
+           readonly #solicitudInput="ngModel">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="style-text-add-user">
+    <input matInput placeholder="Id. Tarea" [(ngModel)]="data.taskId" name="taskId"
+           readonly #taskIdInput="ngModel">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="style-text-add-user">
+    <input matInput placeholder="Cliente" [(ngModel)]="data.nombre" name="cliente"
+           readonly #clienteInput="ngModel">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="style-text-add-user">
+    <input matInput placeholder="Valor Solicitado" [(ngModel)]="data.monto" name="monto"
+           readonly #montoInput="ngModel">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="style-text-add-user">
+    <input matInput placeholder="Total Ingresos" [(ngModel)]="data.ingresos" name="ingresos"
+           readonly #ingresosInput="ngModel">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="style-text-add-user">
+    <input matInput placeholder="Total Gastos" [(ngModel)]="data.gastos" name="gastos"
+           readonly #gastosInput="ngModel">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions style="padding: 0 200px;">
+  <button mat-raised-button color="primary" [mat-dialog-close]="'aprobada'">
+    <mat-icon>assignment_ind</mat-icon>
+    <span class="button-caption">Aprobar</span>
+  </button>
+  <button mat-raised-button color="warm" [mat-dialog-close]="'rechazada'">
+    <mat-icon>person_add_disabled</mat-icon>
+    <span class="button-caption">Rechazar</span>
+  </button>
+</mat-dialog-actions>

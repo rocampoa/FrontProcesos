@@ -14,6 +14,9 @@ import {MessageComponent} from './component/message/message.component';
 import {SolicitudComponent} from './component/solicitud/solicitud.component';
 import {NumberDirective} from './directives/number.directive';
 import {VacioComponent} from './component/vacio/vacio.component';
+import {ValidarComponent} from './component/validar/validar.component';
+import {ValidarSolicitudComponent} from './component/validar-solicitud/validar-solicitud.component';
+import {BusinessService} from './services/business/business.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import {VacioComponent} from './component/vacio/vacio.component';
     MessageComponent,
     SolicitudComponent,
     NumberDirective,
-    VacioComponent
+    VacioComponent,
+    ValidarComponent,
+    ValidarSolicitudComponent
   ],
   imports: [
     BrowserModule,
@@ -33,8 +38,8 @@ import {VacioComponent} from './component/vacio/vacio.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [CookieService, UIService],
-  entryComponents: [MessageComponent],
+  providers: [CookieService, UIService, BusinessService],
+  entryComponents: [MessageComponent, ValidarSolicitudComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
