@@ -38,7 +38,7 @@ export class ValidarSolicitudComponent implements OnInit {
       this.getTaskData(r[0].value, parseInt(r[1].value, 10)).subscribe(d => {
         this.data.nombre = d[0].records[0].Name;
         this.data.idSolicitud = d[1].requestId;
-        this.data.gastos = '' + (parseInt(d[1].erent, 10) + parseInt(d[1].cards, 10) + parseInt(d[1].loans, 10) + parseInt(d[1].expenses, 10) + 5);
+        this.data.gastos = '' + (parseInt(d[1].erent, 10) + parseInt(d[1].cards, 10) + parseInt(d[1].loans, 10) + parseInt(d[1].expenses, 10));
         this.data.ingresos = '' + (parseInt(d[1].commissions, 10) + parseInt(d[1].income, 10) + parseInt(d[1].rent, 10) + parseInt(d[1].salary, 10));
         this.data.monto = d[1].amount;
       });

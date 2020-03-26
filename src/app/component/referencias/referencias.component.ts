@@ -1,17 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {CasesDataSource} from '../../datasources/cases-data-source';
 import {TaskService} from '../../bonita/task/task.service';
 import {SessionService} from '../../bonita/rest-api/session.service';
-import {HumanTaskDTO} from '../../bonita/task/human-task-d-t-o';
 import {UIService} from '../../services/ui.service';
+import {HumanTaskDTO} from '../../bonita/task/human-task-d-t-o';
 
 @Component({
-  selector: 'app-validar',
-  templateUrl: './validar.component.html',
-  styleUrls: ['./validar.component.css']
+  selector: 'app-referencias',
+  templateUrl: './referencias.component.html',
+  styleUrls: ['./referencias.component.css']
 })
-export class ValidarComponent implements OnInit {
-  private taskName = 'Validar';
+export class ReferenciasComponent implements OnInit {
+
+  private taskName = 'Validar';//'referencia';
   datasource: CasesDataSource;
   displayedColumns: string[] = ['caseId', 'name', 'id', 'description', 'ejecutar'];
 
@@ -28,7 +29,7 @@ export class ValidarComponent implements OnInit {
     this.ts.takeTask({taskId: data.id, userId: this.ss.sessionInfo.user_id}).subscribe(
       s => {
         // Se muestra la tarea para su ejecución
-        this.ui.showValidateRequest(data)
+        this.ui.showValidateRef(data)
           .subscribe(x => {
             this.ts.endTaskValidate(data.id, {resultado: x})
               .subscribe(s => {

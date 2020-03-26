@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {MessageComponent} from '../component/message/message.component';
 import {ValidarSolicitudComponent} from '../component/validar-solicitud/validar-solicitud.component';
 import {HumanTaskDTO} from '../bonita/task/human-task-d-t-o';
+import {ConfirmarReferenciasComponent} from '../component/confirmar-referencias/confirmar-referencias.component';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,15 @@ export class UIService {
 
   showValidateRequest(info: HumanTaskDTO): Observable<any> {
     const dialogRef = this.dialog.open(ValidarSolicitudComponent, {
+      data: info,
+      disableClose: true,
+      hasBackdrop: true
+    });
+    return dialogRef.afterClosed();
+  }
+
+  showValidateRef(info: HumanTaskDTO): Observable<any> {
+    const dialogRef = this.dialog.open(ConfirmarReferenciasComponent, {
       data: info,
       disableClose: true,
       hasBackdrop: true

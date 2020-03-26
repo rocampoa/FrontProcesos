@@ -1,17 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {CasesDataSource} from '../../datasources/cases-data-source';
 import {TaskService} from '../../bonita/task/task.service';
 import {SessionService} from '../../bonita/rest-api/session.service';
-import {HumanTaskDTO} from '../../bonita/task/human-task-d-t-o';
 import {UIService} from '../../services/ui.service';
+import {HumanTaskDTO} from '../../bonita/task/human-task-d-t-o';
 
 @Component({
-  selector: 'app-validar',
-  templateUrl: './validar.component.html',
-  styleUrls: ['./validar.component.css']
+  selector: 'app-dactiloscopia',
+  templateUrl: './dactiloscopia.component.html',
+  styleUrls: ['./dactiloscopia.component.css']
 })
-export class ValidarComponent implements OnInit {
-  private taskName = 'Validar';
+export class DactiloscopiaComponent implements OnInit {
+
+  private taskName = 'Dactiloscopia';
   datasource: CasesDataSource;
   displayedColumns: string[] = ['caseId', 'name', 'id', 'description', 'ejecutar'];
 

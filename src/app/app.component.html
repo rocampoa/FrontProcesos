@@ -16,11 +16,11 @@
         <mat-icon>find_replace</mat-icon>
         <span>Validar Cr&eacute;dito</span>
       </button>
-      <button mat-menu-item [disabled]="isDisabled">
+      <button mat-menu-item [disabled]="isDisabled" (click)="navigate('dactiloscopia')">
         <mat-icon>fingerprint</mat-icon>
         <span>Validacion dactilosc&oacute;pica</span>
       </button>
-      <button mat-menu-item [disabled]="isDisabled">
+      <button mat-menu-item [disabled]="isDisabled" (click)="navigate('referencias')">
         <mat-icon>phone_in_talk</mat-icon>
         <span>Verificar Referencias</span>
       </button>

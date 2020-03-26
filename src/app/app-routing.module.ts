@@ -4,6 +4,8 @@ import {LoginComponent} from './component/login/login.component';
 import {SolicitudComponent} from './component/solicitud/solicitud.component';
 import {VacioComponent} from './component/vacio/vacio.component';
 import {ValidarComponent} from './component/validar/validar.component';
+import {DactiloscopiaComponent} from './component/dactiloscopia/dactiloscopia.component';
+import {ReferenciasComponent} from './component/referencias/referencias.component';
 
 
 const routes: Routes = [
@@ -11,7 +13,9 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'solicitud', component: SolicitudComponent},
   {path: 'inicio', component: VacioComponent},
-  {path: 'validar', component: ValidarComponent}
+  {path: 'validar', component: ValidarComponent},
+  {path: 'dactiloscopia', component: DactiloscopiaComponent},
+  {path: 'referencias', component: ReferenciasComponent}
 ];
 
 @NgModule({
