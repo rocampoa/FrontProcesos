@@ -12,7 +12,7 @@ import {HumanTaskDTO} from '../../bonita/task/human-task-d-t-o';
 })
 export class ReferenciasComponent implements OnInit {
 
-  private taskName = 'Validar';//'referencia';
+  private taskName = 'Efectuar proceso';//'referencia';
   datasource: CasesDataSource;
   displayedColumns: string[] = ['caseId', 'name', 'id', 'description', 'ejecutar'];
 
@@ -31,7 +31,7 @@ export class ReferenciasComponent implements OnInit {
         // Se muestra la tarea para su ejecución
         this.ui.showValidateRef(data)
           .subscribe(x => {
-            this.ts.endTaskValidate(data.id, {resultado: x})
+            this.ts.endTaskValidate(data.id, {resultadoVal: x})
               .subscribe(s => {
                 this.datasource.loadTask(this.ss.sessionInfo.user_id, this.taskName);
               });

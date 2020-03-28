@@ -31,12 +31,16 @@
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions style="padding: 0 200px;">
-  <button mat-raised-button color="primary" [mat-dialog-close]="'aprobada'">
+  <button mat-raised-button color="primary" [mat-dialog-close]="'Aprueba'">
     <mat-icon>assignment_ind</mat-icon>
     <span class="button-caption">Aprobar</span>
   </button>
-  <button mat-raised-button color="warm" [mat-dialog-close]="'rechazada'">
+  <button mat-raised-button color="warm" [mat-dialog-close]="'Rechaza'">
     <mat-icon>person_add_disabled</mat-icon>
+    <span class="button-caption">Rechazar</span>
+  </button>
+  <button mat-raised-button color="warm" [mat-dialog-close]="'Devuelve'">
+    <mat-icon>erro_outline</mat-icon>
     <span class="button-caption">Rechazar</span>
   </button>
 </mat-dialog-actions>

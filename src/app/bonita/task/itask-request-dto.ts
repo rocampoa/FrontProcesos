@@ -3,4 +3,6 @@ export interface ITaskRequestDTO {
   refCId?: string;
   refPId?: string;
   formularioId?: number;
+  ingresosVal?: number;
+  gastosVal?: number;
 }

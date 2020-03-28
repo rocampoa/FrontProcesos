@@ -1,0 +1,44 @@
+<h2>Encuesta de Satisfacci&oacute;n</h2>
+<mat-dialog-content>
+  <mat-form-field class="style-text-add-user">
+    <input matInput placeholder="N&uacute;mero Solicitud" [(ngModel)]="idSolicitud" name="idSolicitud"
+           readonly #solicitudInput="ngModel">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="style-text-add-user">
+    <input matInput placeholder="Cliente" [(ngModel)]="nameContact" name="cliente"
+           readonly #clienteInput="ngModel">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="style-text2">
+    <mat-select placeholder="El tiempo de aprobaci&oacute;n de su cr&eacute;dito fue?" required name="preg1"
+                [(ngModel)]="rtas.rta1"
+                #docTypeInput="ngModel">
+      <mat-option *ngFor="let r of respuestas" [value]="r.cod">{{r.description}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <br/>
+  <mat-form-field class="style-text2">
+    <mat-select placeholder="La atenci&oacute;n del presonal fue?" required name="preg2"
+                [(ngModel)]="rtas.rta2"
+                #docTypeInput="ngModel">
+      <mat-option *ngFor="let r of respuestas" [value]="r.cod">{{r.description}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+  <mat-form-field class="style-text2">
+    <mat-select placeholder="Calificación general del proceso de solicitud de cr&eacute;dito?" required
+                name="preg3"
+                [(ngModel)]="rtas.rta3"
+                #docTypeInput="ngModel">
+      <mat-option *ngFor="let r of respuestas" [value]="r.cod">{{r.description}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions style="padding: 0 200px;">
+  <button mat-raised-button color="primary" [mat-dialog-close]="rtas">
+    <mat-icon>assessment</mat-icon>
+    <span class="button-caption">Enviar</span>
+  </button>
+</mat-dialog-actions>

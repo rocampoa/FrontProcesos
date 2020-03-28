@@ -20,6 +20,8 @@ import {BusinessService} from './services/business/business.service';
 import { DactiloscopiaComponent } from './component/dactiloscopia/dactiloscopia.component';
 import { ReferenciasComponent } from './component/referencias/referencias.component';
 import { ConfirmarReferenciasComponent } from './component/confirmar-referencias/confirmar-referencias.component';
+import { EncuestaComponent } from './component/encuesta/encuesta.component';
+import { RealizarEncuestaComponent } from './component/realizar-encuesta/realizar-encuesta.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ConfirmarReferenciasComponent } from './component/confirmar-referencias
     ValidarSolicitudComponent,
     DactiloscopiaComponent,
     ReferenciasComponent,
-    ConfirmarReferenciasComponent
+    ConfirmarReferenciasComponent,
+    EncuestaComponent,
+    RealizarEncuestaComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,7 @@ import { ConfirmarReferenciasComponent } from './component/confirmar-referencias
     ReactiveFormsModule
   ],
   providers: [CookieService, UIService, BusinessService],
-  entryComponents: [MessageComponent, ValidarSolicitudComponent, ConfirmarReferenciasComponent],
+  entryComponents: [MessageComponent, ValidarSolicitudComponent, ConfirmarReferenciasComponent, EncuestaComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,3 +1,3 @@
 export interface ITaskValidateDTO {
-  resultado?: string;
+  resultadoVal?: string;
 }

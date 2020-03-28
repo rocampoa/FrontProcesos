@@ -1,20 +1,25 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {ValidarSolicitudDTO} from '../../model/validar-solicitud-dto';
+import * as myGlobal from '../../model/Global';
+import {PollResponseDTO} from '../../model/poll-response-dto';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {HumanTaskDTO} from '../../bonita/task/human-task-d-t-o';
 import {BusinessService} from '../../services/business/business.service';
 import {ProcessService} from '../../bonita/process/process.service';
-import {forkJoin, Observable} from 'rxjs';
 import {SalesforceService} from '../../bonita/salesforce/salesforce.service';
+import {forkJoin, Observable} from 'rxjs';
 
 @Component({
-  selector: 'app-validar-solicitud',
-  templateUrl: './validar-solicitud.component.html',
-  styleUrls: ['./validar-solicitud.component.css']
+  selector: 'app-encuesta',
+  templateUrl: './encuesta.component.html',
+  styleUrls: ['./encuesta.component.css']
 })
-export class ValidarSolicitudComponent implements OnInit {
+export class EncuestaComponent implements OnInit {
 
-  data = new ValidarSolicitudDTO();
+  nameContact?: string;
+  idSolicitud = 0;
+
+  respuestas = myGlobal.respuestas;
+  rtas = new PollResponseDTO();
 
   constructor(@Inject(MAT_DIALOG_DATA) public passedData: HumanTaskDTO, private bs: BusinessService, private ps: ProcessService,
               private ss: SalesforceService) {
@@ -33,14 +38,10 @@ export class ValidarSolicitudComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.data.taskId = this.passedData.id;
     this.getProcessData().subscribe(r => {
       this.getTaskData(r[0].value, parseInt(r[1].value, 10)).subscribe(d => {
-        this.data.nombre = d[0].records[0].Name;
-        this.data.idSolicitud = d[1].requestId;
-        this.data.gastos = '' + (parseInt(d[1].erent, 10) + parseInt(d[1].cards, 10) + parseInt(d[1].loans, 10) + parseInt(d[1].expenses, 10));
-        this.data.ingresos = '' + (parseInt(d[1].commissions, 10) + parseInt(d[1].income, 10) + parseInt(d[1].rent, 10) + parseInt(d[1].salary, 10));
-        this.data.monto = d[1].amount;
+        this.nameContact = d[0].records[0].Name;
+        this.idSolicitud = d[1].requestId;
       });
     });
   }

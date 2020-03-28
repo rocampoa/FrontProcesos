@@ -21,10 +21,10 @@ export class ConfirmarReferenciasComponent implements OnInit {
   }
 
   getProcessData(): Observable<any> {
-    const r1 = this.ps.queyrVar(this.passedData.caseId, 'contactId');
+    const r1 = this.ps.queyrVar(this.passedData.caseId, 'clienteSFObjID');
     const r2 = this.ps.queyrVar(this.passedData.caseId, 'solicitudId');
-    const r3 = this.ps.queyrVar(this.passedData.caseId, 'refComId');
-    const r4 = this.ps.queyrVar(this.passedData.caseId, 'refFamId');
+    const r3 = this.ps.queyrVar(this.passedData.caseId, 'refComSFObjID');
+    const r4 = this.ps.queyrVar(this.passedData.caseId, 'refFamSFObjIF');
     return forkJoin([r1, r2, r3, r4]);
   }
 

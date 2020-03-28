@@ -24,6 +24,10 @@
         <mat-icon>phone_in_talk</mat-icon>
         <span>Verificar Referencias</span>
       </button>
+      <button mat-menu-item (click)="navigate('encuesta')">
+        <mat-icon>poll</mat-icon>
+        <span>Encuesta de Satisfacci&oacute;n</span>
+      </button>
       <button mat-menu-item (click)="navigate('login')" [disabled]="isDisabled">
         <mat-icon>exit_to_app</mat-icon>
         <span>Logout</span>

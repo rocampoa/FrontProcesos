@@ -7,6 +7,7 @@ import {Observable} from 'rxjs';
 import {ITakeTaskDTO} from './i-take-task-d-t-o';
 import {ITaskRequestDTO} from './itask-request-dto';
 import {ITaskValidateDTO} from './itask-validate-dto';
+import {PollResponseDTO} from '../../model/poll-response-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,10 @@ export class TaskService {
 
   endTaskValidate(taskId: string, data: ITaskValidateDTO): Observable<any> {
     return this.http.post(`${this.URL}/endTaskValidate/${taskId}`, data);
+  }
+
+  endTaskPoll(taskId: string, data: PollResponseDTO): Observable<any> {
+    return this.http.post(`${this.URL}/endTaskPoll/${taskId}`, data);
   }
 
 }

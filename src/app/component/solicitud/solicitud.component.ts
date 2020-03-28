@@ -68,7 +68,16 @@ export class SolicitudComponent implements OnInit {
       //Se graba la información de la solicitud.
       this.bs.createRequest(this.data.requestD).subscribe(r => {
         //Se finaliza la tarea en Bonita
-        this.ts.endTaskRequest(this.ht.id, {clientId: r.contactId, refCId: r.refCId, refPId: r.refPId, formularioId: r.requestId})
+        const ingresos = r.salary + r.income + r.rent + r.commissions;
+        const gastos = r.erent + r.expenses + r.loans + r.cards;
+        this.ts.endTaskRequest(this.ht.id, {
+          clientId: r.contactId,
+          refCId: r.refCId,
+          refPId: r.refPId,
+          formularioId: r.requestId,
+          ingresosVal: ingresos,
+          gastosVal: gastos
+        })
           .subscribe(y => {
             this.ui.showMessage(
               {

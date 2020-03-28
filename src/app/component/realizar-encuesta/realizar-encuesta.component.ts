@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CasesDataSource} from '../../datasources/cases-data-source';
 import {TaskService} from '../../bonita/task/task.service';
 import {SessionService} from '../../bonita/rest-api/session.service';
@@ -6,13 +6,12 @@ import {UIService} from '../../services/ui.service';
 import {HumanTaskDTO} from '../../bonita/task/human-task-d-t-o';
 
 @Component({
-  selector: 'app-dactiloscopia',
-  templateUrl: './dactiloscopia.component.html',
-  styleUrls: ['./dactiloscopia.component.css']
+  selector: 'app-realizar-encuesta',
+  templateUrl: './realizar-encuesta.component.html',
+  styleUrls: ['./realizar-encuesta.component.css']
 })
-export class DactiloscopiaComponent implements OnInit {
-
-  private taskName = 'Dactiloscopia';
+export class RealizarEncuestaComponent implements OnInit {
+  private taskName = 'Encuesta';
   datasource: CasesDataSource;
   displayedColumns: string[] = ['caseId', 'name', 'id', 'description', 'ejecutar'];
 
@@ -29,9 +28,9 @@ export class DactiloscopiaComponent implements OnInit {
     this.ts.takeTask({taskId: data.id, userId: this.ss.sessionInfo.user_id}).subscribe(
       s => {
         // Se muestra la tarea para su ejecución
-        this.ui.showValidateRequest(data)
+        this.ui.showPoll(data)
           .subscribe(x => {
-            this.ts.endTaskValidate(data.id, {resultadoVal: x})
+            this.ts.endTaskPoll(data.id, x)
               .subscribe(s => {
                 this.datasource.loadTask(this.ss.sessionInfo.user_id, this.taskName);
               });

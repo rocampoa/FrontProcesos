@@ -30,7 +30,7 @@ export class ValidarComponent implements OnInit {
         // Se muestra la tarea para su ejecución
         this.ui.showValidateRequest(data)
           .subscribe(x => {
-            this.ts.endTaskValidate(data.id, {resultado: x})
+            this.ts.endTaskValidate(data.id, {resultadoVal: x})
               .subscribe(s => {
                 this.datasource.loadTask(this.ss.sessionInfo.user_id, this.taskName);
               });

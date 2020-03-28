@@ -16,3 +16,6 @@ export const maritalStatuses: IDatoRef[] = [{cod: 'Soltero', description: 'Solte
 
 export const grados: IDatoRef[] = [{cod: 'Primaria', description: 'Primaria'}, {cod: 'Bachillerato', description: 'Bachillerato'},
   {cod: 'Universitario', description: 'Univesitario'}, {cod: 'Postgrado', description: 'Postgrado'}];
+
+export const respuestas: IDatoRef[] = [{cod: '4', description: 'Excelente'}, {cod: '3', description: 'Bueno'},
+                                       {cod: '2', description: 'Regular'}, {cod: '1', description: 'Malo'}];
